@@ -1,0 +1,8 @@
+{
+  "extends": "@josundt/tsconfig-rules/tsconfig.base.node.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true
+  },
+  "include": ["src"],
+}

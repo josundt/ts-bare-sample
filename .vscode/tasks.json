@@ -1,0 +1,50 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "compile:and:lint",
+      "dependsOn": ["compile:ts", "lint:ts"],
+      "dependsOrder": "parallel",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "compile",
+      "dependsOn": ["compile:ts"],
+      "dependsOrder": "parallel",
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "compile:ts",
+      "type": "npm",
+      "script": "compile",
+      "problemMatcher": "$tsc",
+      "group": "build"
+    },
+    {
+      "label": "lint",
+      "dependsOn": ["lint:ts"],
+      "dependsOrder": "parallel",
+      "presentation": {
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "lint:ts",
+      "type": "shell",
+      "command": "npx",
+      "args": ["eslint", "src", "-f", "stylish"],
+      "group": "build",
+      "problemMatcher": "$eslint-stylish"
+    }
+  ]
+}

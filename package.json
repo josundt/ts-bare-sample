@@ -1,0 +1,28 @@
+{
+  "name": "ts-bare-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "compile": "npm run compile:ts",
+    "compile:ts": "tsc -p ./tsconfig.json",
+    "prebuild": "rimraf -g ./dist/**/*",
+    "build": "tsc -p tsconfig.dist.amd.json && tsc -p tsconfig.dist.esm.json && tsc -p tsconfig.dist.types.json",
+    "format": "npm run format:ts",
+    "format:ts": "prettier --config .prettierrc src/**/*.ts --write",
+    "lint": "npm run lint:ts",
+    "lint:ts": "eslint src -f visualstudio",
+    "start": "node --experimental-strip-types --experimental-transform-types --no-warnings=ExperimentalWarning ./src/index.ts",
+    "test": "echo \"Error: no test exists\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@josundt/eslint-config": "5.7.2",
+    "@josundt/tsconfig-rules": "5.2.2",
+    "@types/node": "22.10.2",
+    "typescript": "5.7.2"
+  }
+}
